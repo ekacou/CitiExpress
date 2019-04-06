@@ -1,0 +1,14 @@
+{
+  "name": "kiki",
+  "version": "1.0.0",
+  "description": "kiki delivery app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ezan Kacou",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}
