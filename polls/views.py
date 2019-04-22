@@ -72,3 +72,11 @@ def location(request):
     else:
 
         return render(request, 'polls/location.html')
+
+
+def order(request):
+    if request.method == 'POST':
+        return HttpResponse(request, '')
+
+    else:
+        return render(request, 'polls/order.html')
