@@ -8,60 +8,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Local Bootstrap CSS -->
   <link rel="stylesheet" href="{% static '/bootstrap/dist/css/bootstrap.css' %}">
-  <!-- link to static files -->
-  <link rel="stylesheet" href="{% static '/css/base.css' %}">
-  <link rel="stylesheet" href="{% static '/css/map.css' %}">
+  <!-- load jquery ajax bootstrap.js library -->
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsZS7E57L_hHZs7pVj_jMGrBDoK5nCw88&callback=initMap">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="{% static '/js/map.js'%}"></script>
   <!-- Plugin CSS commented it out to see if it makes a difference-->
   <link rel="stylesheet" href="{% static '/css/device-mockups.css' %}">
   <link rel="stylesheet" href="{% static '/css/device-mockups2.css' %}">
-  <!-- load jquery ajax bootstrap.js library -->
-   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsZS7E57L_hHZs7pVj_jMGrBDoK5nCw88&callback=initMap">
-  </script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="{% static '/js/map.js'%}"></script>
+  <link rel="stylesheet" href="{% static '/css/map.css' %}">
+  <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
   <title>Location</title>
 </head>
 <body>
-<!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Commencer Livraison</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#download">Télécharger</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#features">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contacter</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light navbar-color-transparent text-white sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand"><img src="{% static '/images/Logo.png' %}" class="d-inline-block align-top" alt="" width="50" height="50"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span> </a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="#">Commandes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Aide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about_page' %}">à propos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Histoire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sign_out' %}">sign out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- map -->
   <div id="map"></div>
-  <div class="jumbotron jumbotron-fluid" align="center">
+
+<!-- jumbotron to get information -->
+  <div class="jumbotron jumbotron-fluid navbar-color-transparent" align="center">
       <in class="container">
-      <label>Address: </label>
-      <p>
-      <script src="{% static '/js/displaylocation.js' %}"></script>
-      </p>
-      <p class="lead">Vérifiez que votre address est correct?</p>
+        <label>Address: </label>
+         <p>
+                <script src="{% static '/js/displaylocation.js' %}"></script>
+         </p>
+          <p class="lead">Vérifiez que votre address est correct?</p>
       <input type="radio" name="AddressVerification" id="Radios1" value="Yes"> Oui </in>
       <input type="radio" name="AddressVerification" id="Radios2" value="Yes"> Non </in>
       <p></p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Télécharger Document</a>
-      </div>
+      <a class="btn btn-secondary btn-md" href="#" role="button">Télécharger Document</a>
   </div>
 
 </body>

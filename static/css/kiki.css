@@ -31,7 +31,7 @@ body {
 
 .card-signin .card-body {
   padding: 2rem;
-  background: linear-gradient(to right, white, grey);
+  background: linear-gradient(to left, #c8f4c9, #56a357);
 }
 
 .form-signin {

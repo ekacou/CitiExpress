@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import ClientSignUp, ClientSignIn
 
@@ -11,18 +11,10 @@ from .forms import ClientSignUp, ClientSignIn
 # Create function where each function will represent a view
 def base(request):
     # load base into the page variable
-    page = loader.get_template('polls/base.html')
+    page = loader.get_template('polls/index.html')
 
     # rendering the template in httpResponse
     return HttpResponse(page.render())
-
-
-# def sign_up(request):
-# load signUp template in page variable
-#   page = loader.get_template('polls/signup.html')
-
-# render page in httpResponse
-#  return HttpResponse(page.render())
 
 
 def sign_up(request):
@@ -34,7 +26,6 @@ def sign_up(request):
 
         # check if the form is valid(was filled up)
         if form.is_valid():
-
             # process the data in form.cleaned_data
             form.save()
 
@@ -57,7 +48,6 @@ def sign_up(request):
 
 
 def sign_in(request):
-
     # Process information if Post method is used
     if request.method == 'POST':
 
@@ -75,12 +65,12 @@ def sign_in(request):
             login(request, user)
 
             # redirect to a success page (index)
-            return render(request, 'polls/base.html')
+            return render(request, 'polls/citiexpress.html')
         else:
             # error message wrong password or username
             message = 'Wrong Username/password'
             context = {'message': message}
-            return HttpResponse('polls/signin', context)
+            return render(request, 'polls/signin.html', context)
     else:
         # if request is a GET reload form and display signin
         form = ClientSignIn()
@@ -106,3 +96,30 @@ def order(request):
 
     else:
         return render(request, 'polls/order.html')
+
+
+def citiexpress(request):
+    if request == 'POST':
+
+        return HttpResponse('polls/citiexpress.html')
+
+    else:
+
+        return render(request, 'polls/citiexpress.html')
+
+
+def sign_out(request):
+    logout(request)
+    message = 'You are now logged out!'
+    context = {
+        "message": message
+    }
+    return render(request, 'polls/index.html', context)
+
+
+def about(request):
+    return render(request, 'polls/about.html')
+
+
+def aide(request):
+    return render(request, 'polls/help.html')

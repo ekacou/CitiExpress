@@ -1,10 +1,66 @@
 
 body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  background: #f4f3f7;
-}
+  color: black;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: url("/home/papa/PycharmProjects/djangokiki/kiki/static/images/bg-pattern.png"), #7b4397;
+  background: url("/home/papa/PycharmProjects/djangokiki/kiki/static/images/bg-pattern.png"), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
+  background: url("/home/papa/PycharmProjects/djangokiki/kiki/static/images/bg-pattern.png"), linear-gradient(to right, #c8f4c9, #56a357);
+
+  }
 
 .navbar-color{
-background-color: #ebe9f2;
+background-color: #86b7a8;
+}
 
+.citiexpress-card-group{
+
+background: #86b7a8;
+color: black;
+}
+
+.navbar-color-transparent{
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-color: rgba(0,0,0,0.0);
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+    background-image: -webkit-lihttp://127.0.0.1:8080/citiexpress/#near-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+}
+
+
+#citiexpressspacing{
+
+margin-top: 15%;
+
+}
+
+.signin-cont-position{
+margin-top: 20%
+
+}
+
+.navbar-text-color, li, a{
+color: black;
+}
+
+#additionalinfo{
+width: 50%;
+}
+
+.about-container{
+background-color: #86b7a8;
+}
+
+hr{
+background-color: white;
+}
+
+.main-scroll-class{
+height:830px;
+overflow-y: scroll;
 }

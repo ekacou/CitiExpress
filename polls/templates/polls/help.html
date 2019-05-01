@@ -3,9 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <!-- viewport for screen adaptation -->
+    <!-- viewport for screen adaptation -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Citi Express</title>
     <!-- Local Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- js -->
@@ -14,15 +13,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="{% static '/css/main.css' %}">
-
-    <title>Order page</title>
-
-
+    <title>Aide</title>
 </head>
 <body>
-
-<!-- Navigation bar -->
-<nav class="navbar navbar-expand-md navbar-light navbar-color-transparent sticky-top">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-light navbar-color sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand"><img src="{% static '/images/Logo.png' %}" class="d-inline-block align-top" alt="" width="50" height="50"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span> </a>
+                    <a class="nav-link" href="#">Debut <span class="sr-only">(current)</span> </a>
                 </li>
                  <li class="nav-item">
                     <a class="nav-link" href="#">Commandes</a>
@@ -52,28 +47,5 @@
         </div>
     </div>
 </nav>
-
-<div class="container-fluid padding">
-    <p class="text-left">
-    <h6 class="dateTime text-right">{% now "F jS Y" %}</h6>
-    <h6 id="currentLastName">Nom: </h6>
-    <h6 id="currentFirsName">Prenom: </h6>
-    <h6 id="currentTelephone">Telephone: </h6>
-    <h6>Location de la livraison: </h6>
-    </p>
-</div>
-<div class="container-fluid">
-
-</div>
-<form>
-    <div class="form-group container-fluid"  >
-        <label for="additionalinfo"> Laisser un mot: </label>
-        <textarea class="form-control" id="additionalinfo" rows="3"></textarea>
-    </div>
-    <div class="container-fluid">
-        <h6 class="text-left">Prix de livraison: 1000 FCFA</h6>
-    </div>
-    <button type="button" class="btn btn-primary btn-sm mx-auto d-block">Commander</button>
-</form>
 </body>
 </html>
