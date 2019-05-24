@@ -13,7 +13,7 @@ class Client(models.Model):
     contact = models.CharField(max_length=21)
     password = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, unique=True)
-    upload = models.CharField(max_length=50)
+    upload = models.FileField()
 
 
 class Employee(models.Model):
@@ -27,7 +27,7 @@ class Employee(models.Model):
 
 class Delivery(models.Model):
     location = models.CharField
-    upload = models.CharField(max_length=50)
+    upload = models.FileField()
     completed = False
     notes = models.CharField(max_length=250)
     paid = False

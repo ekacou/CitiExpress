@@ -5,7 +5,7 @@ from django.template import loader
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from .forms import ClientSignUp, ClientSignIn
+from .forms import ClientSignUp, ClientSignIn, UploadFile
 
 
 # Create function where each function will represent a view

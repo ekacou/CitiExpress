@@ -20,3 +20,8 @@ class ClientSignIn(forms.ModelForm):
 
             "password": forms.PasswordInput(),
         }
+
+
+class UploadFile(forms.Form):
+    model = Client
+    fields = ["upload"]
