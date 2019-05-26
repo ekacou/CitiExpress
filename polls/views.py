@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import ClientSignUp, ClientSignIn, UploadFile
+from django.core.files.storage import FileSystemStorage
 
 
 # Create function where each function will represent a view
@@ -40,7 +41,7 @@ def sign_up(request):
             user.save()
 
             # redirect
-            return HttpResponse('polls/signin.html')
+            return render(request, 'polls/signin.html')
     else:
         form = ClientSignUp()
         context = {'form': form}
@@ -82,6 +83,12 @@ def sign_in(request):
 
 def location(request):
     if request.method == 'POST':
+
+        uploaded_file = request.FILES['document']
+        print(uploaded_file.name)
+        print(uploaded_file.size)
+        fs = FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
 
         return HttpResponse(request, '')
 

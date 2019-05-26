@@ -127,5 +127,6 @@ STATIC_URL = '/home/papa/PycharmProjects/djangokiki/kiki/static/'
 ALLOWED_HOSTS = ['*']
 
 MEDIA_ROOT = '/var/www/html/media'
-
+# A different way to set the path to the uploaded document would be
+# MEDIA_ROOT = os.path.join[BASE_DIR, 'media']
 MEDIA_URL = ''
